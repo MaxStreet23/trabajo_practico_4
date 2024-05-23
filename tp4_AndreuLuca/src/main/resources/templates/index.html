@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" data-th-href="@{webjars/bootstrap/5.3.3/css/bootstrap.min.css}">	
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>TP4</title>
+	</head>
+	<body>
+		<div>
+			<header>
+				<div data-th-replace="fragments/navBar::navbar"></div>
+			</header>
+			<main>
+				<h1>Hola Mundo</h1>
+				<p>Trabajo en Proceso. 
+				Tuve problemas ejecutando la pagina y me la pase buscando que era lo que esta pasando.</p>
+				<p>Lo que hice fue usar una version vieja de spring-boot-starter-parent ya que eso me causaba el error</p>
+			</main>
+			<aside>
+				<h1>Aside</h1>
+			</aside>
+			<footer>
+				<h1>Footer</h1>
+			</footer>
+		</div>
+		<script data-th-src="@{webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
+	</body>
+</html>
