@@ -2,38 +2,12 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="#" data-th-href="@{webjars/bootstrap/5.3.3/css/bootstrap.min.css}">	
+	<link rel="stylesheet" href="#" data-th-href="@{webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>TP4</title>
-<!-- 	Intente usar thymeleaf pero me daba error no importara lo que hacia -->
 </head>
 <body>
-	<header>
-		<div>
-			<nav class="navbar bg-body-tertiary bg-info-subtle">
-  				<div class="container-fluid">
-    				<a class="navbar-brand text-info-emphasis fw-bolder" href="https://www.fi.unju.edu.ar">
-     				<img src="images/logo.png" alt="Logo" width="60" height="54" class="d-inline-block align-text-middle">
-      				Facultad de Ingenieria UNJu - 52 Años Educando
-    				</a>
-  				</div>
-			</nav>
-		</div>
-		<div>
-			<nav class="navbar navbar-expand-lg bg-body-tertiary bg-info-subtle">
-  				<div class="container-fluid">
-    				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      					<div class="navbar-nav">
-        					<a class="nav-link fw-bolder text-info-emphasis" href="#inicio">Inicio</a>
-        					<a class="nav-link fw-bolder text-info-emphasis" href="#acerca">Acerca de</a>
-        					<a class="nav-link fw-bolder text-info-emphasis" href="#carreras">Carreras</a>
-        					<a class="nav-link fw-bolder text-info-emphasis" href="#noticias">Noticias</a>
-        					<a class="nav-link fw-bolder text-info-emphasis" href="#contacto">Contacto</a>
-      					</div>
-    				</div>
-  				</div>
-			</nav>
-		</div>
-	</header>
+	<header data-th-replace="~{fragments/navbar :: navbar}"></header>
 	<div class="d-flex">
 		<main class="p-2 flex-grow-1 bg-dark text-white">
 			<div id="inicio">
@@ -79,37 +53,9 @@
 				</div>
 			</div>
 		</main>
-		<aside class="p-2 bg-primary-subtle text-primary-emphasis">
-			<h3>Recursos Adicionales</h3><br>
-			<div class="d-flex flex-column">
-				<a class="p-2" href="https://www.fi.unju.edu.ar/servicios/biblioteca.html" target="_blank"> <img alt="Error Cargando Imagen" src="images/biblioteca.png"></a><br>
-				<a class="p-2" href="https://campus.fi.unju.edu.ar" target="_blank"> <img alt="Error Cargando Imagen" src="images/campus_fi.png"></a><br>
-				<a class="p-2" href="https://www.fi.unju.edu.ar/siu-guarani-alumnos" target="_blank"> <img alt="Error Cargando Imagen" src="images/siu_guarani.png"></a><br>
-			</div>
-		</aside>
+		<aside data-th-replace="~{fragments/pageSide :: asidde}"></aside>
 	</div>
-	<footer id="contacto" class="d-flex bg-black text-white">
-		<div class="p-2 bg-black text-white">
-			<ul class="list-group list-group-flush">
-				<li class="list-group-item bg-black text-white"><h4>FACULTAD DE INGENIERIA - UNJu</h4></li>
-				<li class="list-group-item bg-black text-white"><p>Direccion: Ítalo Palanca Nº 10</p>
-				<p>Telefono: 0388 422-1580</p>
-				<p>Email: info@fi.unju.edu.ar</p></li>
-			</ul>
-		</div>
-		<div class="p-2">
-			<ul class="list-group list-group-flush">
-				<li class="list-group-item bg-black text-white"><h4>Redes Sociales</h4></li>
-				<li class="list-group-item bg-black"><p><a class="link-primary link-underline link-underline-opacity-0" href="#">Facebook</a></p>
-				<p><a class="link-danger link-underline link-underline-opacity-0" href="#">YouTube</a></p>
-				<p><a class="link-info link-underline link-underline-opacity-0" href="#">LinkedIn</a></p>
-				<p><a class="link-warning link-underline link-underline-opacity-0" href="#">Instagram</a></p></li>
-			</ul>
-		</div>
-		<div class="p-2">
-			<h4>Copyright © 2014-2022 - Facultad de Ingeniería - UNJu</h4>
-		</div>
-	</footer>
+	<footer id="contacto" data-th-replace="~{fragments/pageEnd :: futer}"></footer>
 	<script data-th-src="@{webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>
