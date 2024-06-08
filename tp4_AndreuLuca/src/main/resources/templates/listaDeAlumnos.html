@@ -32,6 +32,7 @@
 	      <td data-th-text="${alumno.domicilio}"></td>
 	      <td data-th-text="${alumno.libretaUniversitaria}"></td>
 	      <td>
+	      	<a data-th-href="@{'/modificarAlumno/'+${alumno.dni}}" class="btn btn-warning" >Modificar</a>
 			<a data-th-href="@{'/borrarAlumno/'+${alumno.dni}}" class="btn btn-danger">Borrar</a>					
 		  </td>
 	    </tr>

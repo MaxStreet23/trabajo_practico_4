@@ -8,7 +8,7 @@ public class Materia {
 	private int cantidadHoras;
 	private Modalidad modalidad;
 	private Docente docente;
-	private String carrera;
+	private Carrera carrera;
 	public String getCodigo() {
 		return codigo;
 	}
@@ -45,10 +45,10 @@ public class Materia {
 	public void setDocente(Docente docente) {
 		this.docente = docente;
 	}
-	public String getCarrera() {
+	public Carrera getCarrera() {
 		return carrera;
 	}
-	public void setCarrera(String carrera) {
+	public void setCarrera(Carrera carrera) {
 		this.carrera = carrera;
 	}
 }
