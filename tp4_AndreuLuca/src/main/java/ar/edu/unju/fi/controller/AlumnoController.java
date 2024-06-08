@@ -42,6 +42,30 @@ public class AlumnoController {
 		return modelView;		
 	}
 	
+	@GetMapping("/modificarAlumno/{dni}")
+	public ModelAndView editAlumno(@PathVariable(name="dni") String dni) {
+		//seleccionar el docente para modificar
+		Alumno alumnoAModificar = ListadoAlumno.buscarAlumnoPorDni(dni);
+		
+		//mostrar el formulario de modificacion
+		ModelAndView modelView = new ModelAndView("formularioAlumnos");
+		modelView.addObject("nuevoAlumno", alumnoAModificar);	
+		modelView.addObject("flag", true);
+		return modelView;		
+		}
+	
+	@PostMapping("/modificarAlumno")
+	public ModelAndView updateAlumno(@ModelAttribute("nuevoAlumno") Alumno alumnoModificado) {
+					
+		//modificar el docente
+		ListadoAlumno.modificarAlumno(alumnoModificado);
+		
+		//mostrar el listado
+		ModelAndView modelView = new ModelAndView("listaDeAlumnos");
+		modelView.addObject("listadoAlumno", ListadoAlumno.listarAlumnos());	
+		return modelView;		
+	}
+	
 	@GetMapping("/alumnos")
 	public ModelAndView showAlumnos() {
 		//mostrar el listado

@@ -42,6 +42,30 @@ public class DocenteController {
 		return modelView;		
 	}
 	
+	@GetMapping("/modificarDocente/{legajo}")
+	public ModelAndView editDocente(@PathVariable(name="legajo") String legajo) {
+		//seleccionar el docente para modificar
+		Docente docenteAModificar = ListadoDocente.buscarDocentePorLegajo(legajo);
+		
+		//mostrar el formulario de modificacion
+		ModelAndView modelView = new ModelAndView("formularioDocentes");
+		modelView.addObject("nuevoDocente", docenteAModificar);	
+		modelView.addObject("flag", true);
+		return modelView;		
+		}
+	
+	@PostMapping("/modificarDocente")
+	public ModelAndView updateDocente(@ModelAttribute("nuevoDocente") Docente docenteModificado) {
+					
+		//modificar el docente
+		ListadoDocente.modificarDocente(docenteModificado);
+		
+		//mostrar el listado
+		ModelAndView modelView = new ModelAndView("listaDeDocentes");
+		modelView.addObject("listadoDocente", ListadoDocente.listarDocentes());	
+		return modelView;		
+	}
+	
 	@GetMapping("/docentes")
 	public ModelAndView showDocentes() {
 		//mostrar el listado

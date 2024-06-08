@@ -9,10 +9,10 @@
 <body class="bg-dark text-white">
 	<header data-th-replace="~{fragments/navbar :: navbar}"></header>
 	<h1 class="p-2">FORMULARIO ALUMNO</h1>
-	<form data-th-object="${nuevoAlumno}" data-th-action="@{/guardarAlumno}" method="post" class="p-2">
+	<form data-th-object="${nuevoAlumno}" data-th-action="${flag}?@{/modificarAlumno}:@{/guardarAlumno}" method="post" class="p-2">
 		<div class="col-6">
 			<label for="dni" class="form-label">DNI</label> 
-			<input type="text" class="form-control bg-dark text-white" id="dni" data-th-field="*{dni}" required>				
+			<input type="text" class="form-control bg-dark text-white" id="dni" data-th-field="*{dni}" data-th-readonly="${flag}" required>				
 		</div>
 		<div class="col-6">
 			<label for="nombre" class="form-label">Nombre</label>

@@ -42,6 +42,30 @@ public class CarreraController {
 		return modelView;		
 	}
 	
+	@GetMapping("/modificarCarrera/{codigo}")
+	public ModelAndView editCarrera(@PathVariable(name="codigo") String codigo) {
+		//seleccionar la carrera para modificar
+		Carrera carreraAModificar = ListadoCarrera.buscarCarreraPorCodigo(codigo);
+		
+		//mostrar el formulario de modificacion
+		ModelAndView modelView = new ModelAndView("formularioCarreras");
+		modelView.addObject("nuevaCarrera", carreraAModificar);	
+		modelView.addObject("flag", true);
+		return modelView;		
+		}
+	
+	@PostMapping("/modificarCarrera")
+	public ModelAndView updateCarrera(@ModelAttribute("nuevaCarrera") Carrera carreraModificada) {
+					
+		//modificar la carrera
+		ListadoCarrera.modificarCarrera(carreraModificada);
+		
+		//mostrar el listado
+		ModelAndView modelView = new ModelAndView("listaDeCarreras");
+		modelView.addObject("listadoCarrera", ListadoCarrera.listarCarreras());	
+		return modelView;		
+	}
+	
 	@GetMapping("/carreras")
 	public ModelAndView showCarreras() {
 		//mostrar el listado

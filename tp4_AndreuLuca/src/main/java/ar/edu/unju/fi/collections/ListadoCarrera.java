@@ -19,10 +19,17 @@ public class ListadoCarrera {
 	}
 	
 	public static void modificarCarrera(Carrera carreraModificada) {
+		carreraModificada.setEstado(true);
 		int i=0;
 		for (Carrera carrera : carrerasDisponibles) {
 			if (carrera.getCodigo().equals(carreraModificada.getCodigo())) {
 				carreras.set(i, carreraModificada);
+				carrerasDisponibles.clear();
+				for(Carrera carrera1 : carreras) {
+					if(carrera1.isEstado()) {
+						carrerasDisponibles.add(carrera1);//Actualizo la lista de carreras disponibles
+					}
+				}
 				break;
 			}
 			i++;
